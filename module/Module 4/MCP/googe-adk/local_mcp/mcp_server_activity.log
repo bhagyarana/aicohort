@@ -1,0 +1,33 @@
+2025-10-10 10:44:01,008 - DEBUG - [server.py:157] - Initializing server 'sqlite-db-fast-mcp-server'
+2025-10-10 10:44:01,008 - DEBUG - [server.py:414] - Registering handler for ListToolsRequest
+2025-10-10 10:44:01,008 - DEBUG - [server.py:281] - Registering handler for ListResourcesRequest
+2025-10-10 10:44:01,008 - DEBUG - [server.py:301] - Registering handler for ListResourceTemplatesRequest
+2025-10-10 10:44:01,008 - DEBUG - [server.py:243] - Registering handler for PromptListRequest
+2025-10-10 10:44:01,008 - DEBUG - [server.py:486] - Registering handler for CallToolRequest
+2025-10-10 10:44:01,008 - DEBUG - [server.py:316] - Registering handler for ReadResourceRequest
+2025-10-10 10:44:01,008 - DEBUG - [server.py:265] - Registering handler for GetPromptRequest
+2025-10-10 10:44:01,011 - INFO - [fastmcp_server.py:198] - Creating FastMCP Server instance for SQLite DB...
+2025-10-10 10:44:01,011 - INFO - [fastmcp_server.py:199] - Launching SQLite DB FastMCP Server via stdio...
+2025-10-10 10:44:01,012 - DEBUG - [selector_events.py:64] - Using selector: KqueueSelector
+2025-10-10 10:44:01,018 - DEBUG - [server.py:627] - Received message: root=InitializedNotification(method='notifications/initialized', params=None, jsonrpc='2.0')
+2025-10-10 10:44:01,019 - DEBUG - [server.py:627] - Received message: <mcp.shared.session.RequestResponder object at 0x10603d310>
+2025-10-10 10:44:01,020 - INFO - [server.py:664] - Processing request of type ListToolsRequest
+2025-10-10 10:44:01,020 - DEBUG - [server.py:666] - Dispatching request of type ListToolsRequest
+2025-10-10 10:44:01,020 - DEBUG - [server.py:713] - Response sent
+2025-10-10 10:44:02,414 - DEBUG - [server.py:627] - Received message: <mcp.shared.session.RequestResponder object at 0x10603d450>
+2025-10-10 10:44:02,414 - INFO - [server.py:664] - Processing request of type ListToolsRequest
+2025-10-10 10:44:02,414 - DEBUG - [server.py:666] - Dispatching request of type ListToolsRequest
+2025-10-10 10:44:02,415 - DEBUG - [server.py:713] - Response sent
+2025-10-10 10:44:02,423 - DEBUG - [server.py:627] - Received message: <mcp.shared.session.RequestResponder object at 0x105f2df30>
+2025-10-10 10:44:02,423 - INFO - [server.py:664] - Processing request of type CallToolRequest
+2025-10-10 10:44:02,424 - DEBUG - [server.py:666] - Dispatching request of type CallToolRequest
+2025-10-10 10:44:02,439 - DEBUG - [server.py:713] - Response sent
+2025-10-10 10:44:02,443 - DEBUG - [server.py:627] - Received message: <mcp.shared.session.RequestResponder object at 0x105f2ed70>
+2025-10-10 10:44:02,443 - INFO - [server.py:664] - Processing request of type ListToolsRequest
+2025-10-10 10:44:02,443 - DEBUG - [server.py:666] - Dispatching request of type ListToolsRequest
+2025-10-10 10:44:02,444 - DEBUG - [server.py:713] - Response sent
+2025-10-10 10:44:03,437 - DEBUG - [server.py:627] - Received message: <mcp.shared.session.RequestResponder object at 0x105f72210>
+2025-10-10 10:44:03,438 - INFO - [server.py:664] - Processing request of type ListToolsRequest
+2025-10-10 10:44:03,438 - DEBUG - [server.py:666] - Dispatching request of type ListToolsRequest
+2025-10-10 10:44:03,439 - DEBUG - [server.py:713] - Response sent
+2025-10-10 10:46:26,836 - INFO - [fastmcp_server.py:210] - FastMCP Server (stdio) process exiting.
