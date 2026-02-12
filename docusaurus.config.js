@@ -20,6 +20,16 @@ const config = {
     locales: ['en'],
   },
 
+  themes: [
+    [
+      require.resolve('@cmfcmf/docusaurus-search-local'),
+      {
+        indexBlog: false,
+        indexDocs: true,
+      },
+    ],
+  ],
+
   presets: [
     [
       'classic',
@@ -41,7 +51,7 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       colorMode: {
-        defaultMode: 'light',
+        defaultMode: 'dark',
         disableSwitch: false,
         respectPrefersColorScheme: true,
       },
@@ -77,7 +87,7 @@ const config = {
             label: 'Capstone',
           },
           {
-            href: 'https://github.com/aicohort/agentic-ai-training',
+            href: 'https://github.com/bhagyarana/aicohort',
             label: 'GitHub',
             position: 'right',
           },
@@ -121,15 +131,11 @@ const config = {
             ],
           },
           {
-            title: 'Community',
+            title: 'Connect',
             items: [
               {
-                label: 'Discord',
-                href: 'https://discord.gg/aicohort',
-              },
-              {
                 label: 'GitHub',
-                href: 'https://github.com/aicohort',
+                href: 'https://github.com/bhagyarana/aicohort',
               },
             ],
           },

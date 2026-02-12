@@ -11,7 +11,7 @@ const sidebars = {
     {
       type: 'category',
       label: 'Onboarding & Setup',
-      collapsed: false,
+      collapsed: true,
       link: {
         type: 'doc',
         id: 'onboarding/index',
@@ -28,7 +28,7 @@ const sidebars = {
     {
       type: 'category',
       label: 'Learning Modules',
-      collapsed: false,
+      collapsed: true,
       link: {
         type: 'doc',
         id: 'modules/index',
@@ -111,7 +111,7 @@ const sidebars = {
     {
       type: 'category',
       label: 'Agent Implementation Series',
-      collapsed: false,
+      collapsed: true,
       link: {
         type: 'doc',
         id: 'agent-patterns/index',
@@ -160,7 +160,7 @@ const sidebars = {
     {
       type: 'category',
       label: 'Capstone Project',
-      collapsed: false,
+      collapsed: true,
       link: {
         type: 'doc',
         id: 'capstone/index',

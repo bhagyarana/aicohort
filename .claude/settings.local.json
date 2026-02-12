@@ -2,7 +2,14 @@
   "permissions": {
     "allow": [
       "Bash(dir:*)",
-      "Bash(git -C \"c:\\\\GitHubProjects\\\\aicohort\" checkout -- src/css/custom.css src/pages/index.module.css src/components/HomepageFeatures/styles.module.css)"
+      "Bash(git -C \"c:\\\\GitHubProjects\\\\aicohort\" checkout -- src/css/custom.css src/pages/index.module.css src/components/HomepageFeatures/styles.module.css)",
+      "WebFetch(domain:aiengg.dev)",
+      "Bash(npm run build:*)",
+      "Bash(npm install:*)",
+      "Bash(npm uninstall:*)",
+      "Bash(npm ls:*)",
+      "Bash(netstat:*)",
+      "Bash(findstr:*)"
     ]
   }
 }
