@@ -26,14 +26,13 @@ function HeroSection() {
             AI Engineering Cohort
           </div>
           <h1 className={styles.heroTitle}>
-            Learn AI Engineering
+            Build Production-Ready
             <br />
-            <span className={styles.heroHighlight}>in 16 Weeks</span>
+            <span className={styles.heroHighlight}>AI Agents</span>
           </h1>
           <p className={styles.heroSubtitle}>
-            Master AI through structured cohort-based learning. Build intelligent agents
-            using LangChain, LangGraph, and modern AI frameworks. From fundamentals to
-            production-ready systems.
+            Go from prompts to scalable, stateful agent systems using LangChain, RAG,
+            LangGraph, MCP, and real-world deployment patterns.
           </p>
           <div className={styles.heroMeta}>
             <div className={styles.heroMetaItem}>
@@ -66,7 +65,7 @@ function HeroSection() {
             <Link
               className={styles.heroCTA}
               to="/learn/onboarding">
-              Start Learning
+              Explore Curriculum
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <line x1="5" y1="12" x2="19" y2="12" />
                 <polyline points="12 5 19 12 12 19" />
