@@ -8,6 +8,33 @@ description: Module 3 theory and concepts
 
 Understanding the architecture and concepts behind LangGraph.
 
+## Choosing Your Stack: Framework vs Vanilla SDK
+
+Every team building agents faces this fork in the road: use a framework like LangGraph, or call provider APIs directly?
+
+| | Vanilla Provider SDKs | Agent Frameworks (LangGraph) |
+|--|----------------------|------------------------------|
+| **Providers** | OpenAI, Anthropic, Google directly | LangChain, LangGraph, Google ADK |
+| **Control** | Full — you write everything | Abstracted — framework handles routing, state, persistence |
+| **Speed to POC** | Slower | Faster |
+| **Production gap** | You solve all production problems yourself | Framework gives you checkpointing, HITL, observability hooks |
+| **Debugging** | Easier for simple cases | Requires understanding framework internals |
+| **Lock-in** | None | Some — porting between frameworks is work |
+
+> **Most teams underestimate the production gap.** It's easy to build a working demo with raw API calls. It's much harder to add resumable state, HITL, multi-user sessions, and observability from scratch. Frameworks exist because these patterns are solved problems.
+
+### The Decision
+
+- **Fast POC / experiment**: Either works. Vanilla SDK is often faster.
+- **Production agent system**: A framework pays back its learning curve.
+- **Key insight**: Frameworks are evolving fast. Don't lock in deeply. **Build fast POCs, validate assumptions, then commit.**
+
+:::tip Framework Lock-In is Real
+Changing frameworks mid-project is expensive. Before committing, ask: "Can this framework grow with my production requirements?" For LangGraph specifically: persistent checkpointing, HITL support, and the hub-and-spoke multi-agent pattern are built-in — these would take weeks to build from scratch.
+:::
+
+---
+
 ## Why LangGraph?
 
 Traditional chains are linear: input → process → output. But real agents need:

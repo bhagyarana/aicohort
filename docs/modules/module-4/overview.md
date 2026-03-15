@@ -35,6 +35,36 @@ An AI agent is an LLM that can:
 └─────────────────────────────────────────────────────────────────┘
 ```
 
+## The Agent Autonomy Spectrum
+
+Before building an agent, understand the tradeoff you're making:
+
+```
+LOW AUTONOMY                                          HIGH AUTONOMY
+     │                                                      │
+     ▼                                                      ▼
+┌─────────┐     ┌──────────┐     ┌──────────┐     ┌─────────────┐
+│  Chain  │────▶│  ReAct   │────▶│  Multi-  │────▶│ Autonomous  │
+│ (fixed) │     │  Agent   │     │  Agent   │     │ (open-ended)│
+└─────────┘     └──────────┘     └──────────┘     └─────────────┘
+     │                │                │                  │
+ Predictable      Flexible         Powerful           Powerful
+ Debuggable       but needs       but complex        but risky
+                  guardrails
+```
+
+> **The Core Tradeoff**: More degrees of freedom = More powerful = More chances to fail
+
+Every tool you give an agent is a new capability — and a new failure surface. Every agent you add to a system multiplies the debugging complexity. This isn't an argument against agents; it's an argument for being intentional about *how much autonomy you grant*.
+
+**Practical rule of thumb:**
+- Can a well-prompted **chain** solve the problem? Use a chain.
+- Does the problem require dynamic **tool selection**? Use a ReAct agent.
+- Does the problem genuinely require **parallel specialized work**? Consider multi-agent.
+- Start simple. Complexity earns its way in.
+
+---
+
 ## Core Concepts
 
 ### 1. Tools
@@ -514,10 +544,46 @@ def triage_node(state) -> Command:
 - More readable when logic is complex
 - Easier to add conditions without restructuring the graph
 
+## Observability for Agents: Don't Fly Blind
+
+When an agent fails in production, you need to know *which step* went wrong. Was it the tool call? The LLM reasoning? The prompt? Without instrumentation, you're debugging blind.
+
+**Langfuse** is the recommended open-source tool for agent tracing at this stage:
+
+```python
+# pip install langfuse
+from langfuse.callback import CallbackHandler
+
+langfuse_handler = CallbackHandler(
+    public_key="your-public-key",
+    secret_key="your-secret-key",
+    host="https://cloud.langfuse.com"
+)
+
+# Add to any LangChain/LangGraph invocation
+result = app.invoke(
+    {"messages": [HumanMessage("What's the weather?")]},
+    config={"callbacks": [langfuse_handler]}
+)
+# Every node, every LLM call, every tool result now appears in Langfuse
+```
+
+What you get per trace:
+- **Exact inputs and outputs** at every node
+- **Token usage and cost** per step
+- **Latency breakdown** — which step is the bottleneck?
+- **Tool call + response** — see what the agent asked and what it got back
+- **Inspectable agent handoffs** — who passed what to whom
+
+> Build observability before you need it. When the first production failure happens, you'll want traces, not print statements. Module 5 covers production-scale observability in depth.
+
+---
+
 ## Summary
 
 | Concept | Purpose |
 |---------|---------|
+| Autonomy Spectrum | Guides how much freedom to give agents |
 | Tools | Agent capabilities |
 | ReAct | Reasoning pattern |
 | Google ADK | Agent framework |
@@ -525,6 +591,7 @@ def triage_node(state) -> Command:
 | Multi-Agent | Collaboration |
 | HITL | Human review gates |
 | Command | Edgeless routing |
+| Langfuse | Agent tracing and observability |
 
 ---
 

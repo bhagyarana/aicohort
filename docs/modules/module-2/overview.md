@@ -492,6 +492,37 @@ Query → Embed → Search → Retrieve → Rerank → Prompt → Generate
 Query → [Semantic Search + Keyword Search] → Merge → Rerank → Generate
 ```
 
+### Knowledge Graph: When Relationships Matter More Than Similarity
+
+Vector RAG finds *similar* content. But sometimes you need to traverse *relationships*.
+
+**Example — a legal compliance agent:**
+
+```
+Vector RAG: "Find text similar to 'GDPR data retention requirements'"
+Knowledge Graph: "Find all contracts → that cite clause 7b → which is subject to
+                  GDPR Article 17 → with review dates before 2026"
+```
+
+A knowledge graph stores entities (contracts, clauses, regulations) and their relationships — so the agent can reason about *connections*, not just similarity.
+
+**When to use Knowledge Graph:**
+
+| Scenario | Best Tool |
+|---------|-----------|
+| "Find documents about topic X" | Vector RAG |
+| "Find how entity A relates to entity B" | Knowledge Graph |
+| "Find all items affected by a cascade change" | Knowledge Graph |
+| "Search across millions of text chunks" | Vector RAG |
+
+> Most teams don't need a knowledge graph until dealing with structured, highly relational data (legal, compliance, financial, supply chain). If you're not sure you need it — you probably don't yet.
+
+---
+
+:::warning Context Window ≠ Memory
+The context window is a **sliding window of recent tokens** — not a persistent store. RAG retrieves external knowledge *into* the context window for each request. If retrieved content is too large, it pushes out earlier conversation history. Engineer your chunk sizes and retrieval counts to leave room for conversation history, not just documents.
+:::
+
 ## Summary
 
 | Concept | Purpose |
@@ -501,6 +532,7 @@ Query → [Semantic Search + Keyword Search] → Merge → Rerank → Generate
 | Chunking | Document preparation |
 | Retrievers | Context fetching |
 | RAG Chain | Augmented generation |
+| Knowledge Graph | Relationship traversal |
 
 ## Test Your Understanding
 
