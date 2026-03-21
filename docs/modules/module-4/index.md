@@ -116,6 +116,10 @@ By the end of this module, you'll have built agents that can:
 - Handle complex multi-step tasks
 :::
 
+:::info See Also
+Want the systems-design theory behind the agent loop, ReAct pattern, memory architectures, and multi-agent coordination? See **[Module 8: Agents & System Design](/learn/ai-engineering/module-8-agents-system-design)** in the AI Engineering track — the conceptual grounding for everything you're building here.
+:::
+
 ## Next Steps
 
 1. Complete the [Overview](./overview)

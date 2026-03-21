@@ -98,6 +98,10 @@ Before starting this module:
 By the end of this module, you'll have built a complete RAG system that can answer questions based on your own documents.
 :::
 
+:::info See Also
+Want the deep theory behind RAG architecture, chunking strategies, reranking, and evaluation? See **[Module 4: RAG Systems](/learn/ai-engineering/module-4-rag-systems)** in the AI Engineering track — the conceptual foundation for what you're building here.
+:::
+
 ## Next Steps
 
 1. Complete the [Overview](./overview)

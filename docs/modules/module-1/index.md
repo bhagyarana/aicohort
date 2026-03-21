@@ -98,6 +98,10 @@ After completing this module, you'll understand:
 4. **Structure Matters** - Output parsing creates reliable applications
 :::
 
+:::info See Also
+Want the theory behind how LLMs actually work? See **[Module 1: LLM Fundamentals](/learn/ai-engineering/module-1-llm-fundamentals)** in the AI Engineering track — covers tokenization, attention, context windows, and why prompts behave the way they do.
+:::
+
 ## Next Steps
 
 Once you've completed Module 1:

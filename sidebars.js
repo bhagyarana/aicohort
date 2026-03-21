@@ -172,6 +172,158 @@ const sidebars = {
       ],
     },
   ],
+
+  aiEngineeringSidebar: [
+    {
+      type: 'doc',
+      id: 'ai-engineering/index',
+      label: 'AI Engineering Track',
+    },
+    {
+      type: 'category',
+      label: 'Module 0: Foundations',
+      collapsed: true,
+      link: { type: 'doc', id: 'ai-engineering/module-0-foundations/index' },
+      items: [
+        'ai-engineering/module-0-foundations/overview',
+        'ai-engineering/module-0-foundations/hands-on',
+        'ai-engineering/module-0-foundations/resources',
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Module 1: LLM Fundamentals',
+      collapsed: true,
+      link: { type: 'doc', id: 'ai-engineering/module-1-llm-fundamentals/index' },
+      items: [
+        'ai-engineering/module-1-llm-fundamentals/overview',
+        'ai-engineering/module-1-llm-fundamentals/hands-on',
+        'ai-engineering/module-1-llm-fundamentals/resources',
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Module 2: Transformer Internals',
+      collapsed: true,
+      link: { type: 'doc', id: 'ai-engineering/module-2-transformer-internals/index' },
+      items: [
+        'ai-engineering/module-2-transformer-internals/overview',
+        'ai-engineering/module-2-transformer-internals/hands-on',
+        'ai-engineering/module-2-transformer-internals/resources',
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Module 3: Prompting & Reasoning',
+      collapsed: true,
+      link: { type: 'doc', id: 'ai-engineering/module-3-prompting-reasoning/index' },
+      items: [
+        'ai-engineering/module-3-prompting-reasoning/overview',
+        'ai-engineering/module-3-prompting-reasoning/hands-on',
+        'ai-engineering/module-3-prompting-reasoning/resources',
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Module 4: RAG Systems',
+      collapsed: true,
+      link: { type: 'doc', id: 'ai-engineering/module-4-rag-systems/index' },
+      items: [
+        'ai-engineering/module-4-rag-systems/overview',
+        'ai-engineering/module-4-rag-systems/hands-on',
+        'ai-engineering/module-4-rag-systems/resources',
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Module 5: Vector Databases',
+      collapsed: true,
+      link: { type: 'doc', id: 'ai-engineering/module-5-vector-databases/index' },
+      items: [
+        'ai-engineering/module-5-vector-databases/overview',
+        'ai-engineering/module-5-vector-databases/hands-on',
+        'ai-engineering/module-5-vector-databases/resources',
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Module 6: Model Optimization',
+      collapsed: true,
+      link: { type: 'doc', id: 'ai-engineering/module-6-model-optimization/index' },
+      items: [
+        'ai-engineering/module-6-model-optimization/overview',
+        'ai-engineering/module-6-model-optimization/hands-on',
+        'ai-engineering/module-6-model-optimization/resources',
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Module 7: Fine-Tuning',
+      collapsed: true,
+      link: { type: 'doc', id: 'ai-engineering/module-7-fine-tuning/index' },
+      items: [
+        'ai-engineering/module-7-fine-tuning/overview',
+        'ai-engineering/module-7-fine-tuning/hands-on',
+        'ai-engineering/module-7-fine-tuning/resources',
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Module 8: Agents & System Design',
+      collapsed: true,
+      link: { type: 'doc', id: 'ai-engineering/module-8-agents-system-design/index' },
+      items: [
+        'ai-engineering/module-8-agents-system-design/overview',
+        'ai-engineering/module-8-agents-system-design/hands-on',
+        'ai-engineering/module-8-agents-system-design/resources',
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Module 9: Evaluation & Safety',
+      collapsed: true,
+      link: { type: 'doc', id: 'ai-engineering/module-9-evaluation-safety/index' },
+      items: [
+        'ai-engineering/module-9-evaluation-safety/overview',
+        'ai-engineering/module-9-evaluation-safety/hands-on',
+        'ai-engineering/module-9-evaluation-safety/resources',
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Module 10: Multimodal Systems',
+      collapsed: true,
+      link: { type: 'doc', id: 'ai-engineering/module-10-multimodal/index' },
+      items: [
+        'ai-engineering/module-10-multimodal/overview',
+        'ai-engineering/module-10-multimodal/hands-on',
+        'ai-engineering/module-10-multimodal/resources',
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Module 11: Production AI Systems',
+      collapsed: true,
+      link: { type: 'doc', id: 'ai-engineering/module-11-production-systems/index' },
+      items: [
+        'ai-engineering/module-11-production-systems/overview',
+        'ai-engineering/module-11-production-systems/hands-on',
+        'ai-engineering/module-11-production-systems/resources',
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Module 12: Capstone Projects',
+      collapsed: true,
+      link: { type: 'doc', id: 'ai-engineering/module-12-capstone/index' },
+      items: [
+        'ai-engineering/module-12-capstone/project-1-research-assistant',
+        'ai-engineering/module-12-capstone/project-2-support-automation',
+        'ai-engineering/module-12-capstone/project-3-code-generation',
+        'ai-engineering/module-12-capstone/project-4-autonomous-agent',
+      ],
+    },
+  ],
 };
 
 module.exports = sidebars;

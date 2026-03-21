@@ -87,6 +87,12 @@ const config = {
             label: 'Capstone',
           },
           {
+            type: 'doc',
+            docId: 'ai-engineering/index',
+            position: 'left',
+            label: 'AI Engineering',
+          },
+          {
             href: 'https://github.com/bhagyarana/aicohort',
             label: 'GitHub',
             position: 'right',
@@ -110,6 +116,10 @@ const config = {
               {
                 label: 'Capstone Project',
                 to: '/learn/capstone',
+              },
+              {
+                label: 'AI Engineering Track',
+                to: '/learn/ai-engineering',
               },
             ],
           },

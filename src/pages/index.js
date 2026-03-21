@@ -305,6 +305,60 @@ function FeaturesSection() {
   );
 }
 
+// AI Engineering Section Data
+const aiEngineeringModules = [
+  { number: '00', title: 'Foundations', description: 'Python for ML, async APIs, data handling, and applied math essentials.' },
+  { number: '01', title: 'LLM Fundamentals', description: 'How LLMs work: tokens, context windows, sampling, and the full inference pipeline.' },
+  { number: '02', title: 'Transformer Internals', description: 'Attention, embeddings, KV cache, and why models behave the way they do.' },
+  { number: '03', title: 'Prompting & Reasoning', description: 'Zero-shot, CoT, structured outputs, tool calling, and prompt injection defenses.' },
+  { number: '04', title: 'RAG Systems', description: 'Retrieval-augmented generation: chunking, embedding, indexing, and reranking.' },
+  { number: '05', title: 'Vector Databases', description: 'ANN search, HNSW, hybrid retrieval, quantization, and choosing the right DB.' },
+  { number: '06', title: 'Model Optimization', description: 'Quantization, distillation, batching, and inference speed trade-offs.' },
+  { number: '07', title: 'Fine-Tuning', description: 'LoRA, QLoRA, RLHF, data curation, and when fine-tuning beats prompting.' },
+  { number: '08', title: 'Agents & System Design', description: 'ReAct, planning agents, tool use, multi-agent orchestration, and memory.' },
+  { number: '09', title: 'Evaluation & Safety', description: 'Evals, benchmarks, red-teaming, hallucination mitigation, and guardrails.' },
+  { number: '10', title: 'Multimodal Systems', description: 'Vision-language models, audio, structured data, and cross-modal pipelines.' },
+  { number: '11', title: 'Production AI Systems', description: 'Deployment, monitoring, latency optimization, cost control, and CI/CD.' },
+  { number: '12', title: 'Capstone Projects', description: 'Build four end-to-end systems: research assistant, support bot, code gen, and autonomous agent.' },
+];
+
+function AIEngineeringSection() {
+  return (
+    <section className={styles.aiEngineering}>
+      <div className="container">
+        <div className={styles.aiEngineeringDivider}>
+          <span className={styles.aiEngineeringDividerLabel}>Also on this platform</span>
+        </div>
+        <div className={styles.sectionHeader}>
+          <span className={clsx(styles.sectionLabel, styles.sectionLabelAmber)}>SELF-PACED</span>
+          <h2 className={styles.sectionTitle}>AI Engineering Track</h2>
+          <p className={styles.sectionSubtitle}>
+            A 13-module concept-first curriculum covering everything from LLM internals to production deployment — learn on your own schedule.
+          </p>
+        </div>
+        <div className={styles.aiEngineeringGrid}>
+          {aiEngineeringModules.map((mod) => (
+            <div key={mod.number} className={styles.aiEngineeringCard}>
+              <span className={styles.aiEngineeringCardNumber}>{mod.number}</span>
+              <h3 className={styles.aiEngineeringCardTitle}>{mod.title}</h3>
+              <p className={styles.aiEngineeringCardDesc}>{mod.description}</p>
+            </div>
+          ))}
+        </div>
+        <div className={styles.aiEngineeringCTA}>
+          <Link className={styles.aiEngineeringCTAButton} to="/learn/ai-engineering">
+            Explore AI Engineering
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <line x1="5" y1="12" x2="19" y2="12" />
+              <polyline points="12 5 19 12 12 19" />
+            </svg>
+          </Link>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 // CTA Section
 function CTASection() {
   return (
@@ -339,6 +393,7 @@ export default function Home() {
       <HeroSection />
       <main>
         <CohortOutlineSection />
+        <AIEngineeringSection />
         <FeaturesSection />
         <CTASection />
       </main>
