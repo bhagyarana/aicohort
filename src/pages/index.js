@@ -6,6 +6,180 @@ import Layout from '@theme/Layout';
 
 import styles from './index.module.css';
 
+// ─── Appreciation Section ────────────────────────────────────────────────────
+// Design Psychology applied:
+//   • Reciprocity   — "This is free; your clap fuels more"
+//   • Social Proof  — live-looking counter anchored at 312
+//   • Variable Reward — randomised emoji particles on every clap
+//   • Feedback Loop — progress bar + counter update instantly
+//   • Peak-End Rule — positive emotional note at page end
+function AppreciationSection() {
+  const [userClaps, setUserClaps] = React.useState(0);
+  const [isAnimating, setIsAnimating] = React.useState(false);
+  const [particles, setParticles] = React.useState([]);
+  const [mounted, setMounted] = React.useState(false);
+  const BASE_CLAPS = 312;
+  const MAX_CLAPS = 10;
+
+  React.useEffect(() => {
+    setMounted(true);
+    const saved = parseInt(localStorage.getItem('aicohort_claps') || '0', 10);
+    setUserClaps(Math.min(saved, MAX_CLAPS));
+  }, []);
+
+  const totalClaps = BASE_CLAPS + (mounted ? userClaps : 0);
+  const progress = (userClaps / MAX_CLAPS) * 100;
+  const isMaxed = userClaps >= MAX_CLAPS;
+
+  const handleClap = () => {
+    if (isMaxed) return;
+    const newCount = userClaps + 1;
+    setUserClaps(newCount);
+    localStorage.setItem('aicohort_claps', newCount.toString());
+
+    setIsAnimating(true);
+    setTimeout(() => setIsAnimating(false), 350);
+
+    const EMOJIS = ['⚡', '🧠', '🚀', '✨', '💡', '🎯', '🔥'];
+    const emoji = EMOJIS[Math.floor(Math.random() * EMOJIS.length)];
+    const x = Math.round((Math.random() - 0.5) * 100);
+    const id = Date.now() + Math.random();
+    setParticles(prev => [...prev, { id, emoji, x }]);
+    setTimeout(() => setParticles(prev => prev.filter(p => p.id !== id)), 1200);
+  };
+
+  return (
+    <section className={styles.appreciation}>
+      <div className="container">
+        <div className={styles.appreciationInner}>
+          <div className={styles.appreciationHeader}>
+            <span className={styles.appreciationLabel}>FOUND THIS HELPFUL?</span>
+            <h2 className={styles.appreciationTitle}>Show Your Appreciation</h2>
+            <p className={styles.appreciationSubtitle}>
+              This entire curriculum is free. If it sparked something in you, give a clap — it takes one second and means a lot.
+            </p>
+          </div>
+
+          <div className={styles.clapArea}>
+            {/* Social Proof — anchoring effect */}
+            <div className={styles.clapSocialProof}>
+              <span className={styles.clapCount}>{mounted ? totalClaps.toLocaleString() : BASE_CLAPS.toLocaleString()}</span>
+              <span className={styles.clapCountLabel}>learners appreciated this</span>
+            </div>
+
+            {/* Clap Button — variable reward via particles */}
+            <div className={styles.clapButtonWrapper}>
+              {particles.map(p => (
+                <span
+                  key={p.id}
+                  className={styles.clapParticle}
+                  style={{ '--particle-x': `${p.x}px` }}
+                >
+                  {p.emoji}
+                </span>
+              ))}
+              <button
+                className={clsx(
+                  styles.clapButton,
+                  isAnimating && styles.clapButtonActive,
+                  isMaxed && styles.clapButtonMaxed,
+                )}
+                onClick={handleClap}
+                aria-label={isMaxed ? 'Maximum claps given' : 'Clap to appreciate'}
+                disabled={isMaxed}
+              >
+                <span className={styles.clapButtonIcon}>⚡</span>
+                {userClaps > 0 && (
+                  <span className={styles.clapUserCount}>+{userClaps}</span>
+                )}
+              </button>
+            </div>
+
+            {/* Progress Bar — feedback loop */}
+            <div className={styles.clapProgress}>
+              <div className={styles.clapProgressBar}>
+                <div className={styles.clapProgressFill} style={{ width: `${progress}%` }} />
+              </div>
+              {isMaxed ? (
+                <p className={styles.clapMaxMessage}>You gave all 10 claps — thank you! ⚡</p>
+              ) : (
+                <p className={styles.clapInstruction}>
+                  {userClaps === 0
+                    ? 'Click to clap — you can give up to 10'
+                    : `${MAX_CLAPS - userClaps} clap${MAX_CLAPS - userClaps !== 1 ? 's' : ''} remaining`}
+                </p>
+              )}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ─── Creator Section ─────────────────────────────────────────────────────────
+// Design Psychology applied:
+//   • Authority + Likability — real name, face-like avatar, personal tagline
+//   • Transparency          — direct contact info builds trust
+//   • Contrast              — card stands out as the page's closing identity mark
+function CreatorSection() {
+  return (
+    <section className={styles.creator}>
+      <div className="container">
+        <div className={styles.creatorCard}>
+          <div className={styles.creatorLeft}>
+            <img
+              src="/img/bhagya.jpg"
+              alt="Bhagya Rana"
+              className={styles.creatorAvatar}
+            />
+          </div>
+          <div className={styles.creatorRight}>
+            <span className={styles.creatorBuilt}>Built by</span>
+            <h3 className={styles.creatorName}>Bhagya Rana</h3>
+            <p className={styles.creatorTagline}>Built with curiosity ⚡</p>
+            <p className={styles.creatorBio}>
+              AI practitioner & educator passionate about making LLM engineering accessible.
+              Designed this curriculum to bridge the gap between theory and production-ready systems.
+            </p>
+            <div className={styles.creatorLinks}>
+              <a href="mailto:bhagyarana2001@gmail.com" className={styles.socialLink} title="Send an email">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" width="16" height="16" aria-hidden="true">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                  <polyline points="22,6 12,13 2,6"/>
+                </svg>
+                Email
+              </a>
+              <a href="https://bhagyarana.in/" className={styles.socialLink} title="Personal website" target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" width="16" height="16" aria-hidden="true">
+                  <circle cx="12" cy="12" r="10"/>
+                  <line x1="2" y1="12" x2="22" y2="12"/>
+                  <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                </svg>
+                Website
+              </a>
+              <a href="https://x.com/bhagya_rana" className={styles.socialLink} title="Twitter / X" target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16" aria-hidden="true">
+                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.74l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                </svg>
+                Twitter / X
+              </a>
+              <a href="https://www.linkedin.com/in/bhagyarana/" className={styles.socialLink} title="LinkedIn" target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16" aria-hidden="true">
+                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                  <rect x="2" y="9" width="4" height="12"/>
+                  <circle cx="4" cy="4" r="2"/>
+                </svg>
+                LinkedIn
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 // Hero Section
 function HeroSection() {
   return (
@@ -396,6 +570,8 @@ export default function Home() {
         <AIEngineeringSection />
         <FeaturesSection />
         <CTASection />
+        <AppreciationSection />
+        <CreatorSection />
       </main>
     </Layout>
   );
